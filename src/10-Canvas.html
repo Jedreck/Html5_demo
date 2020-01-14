@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Canvas</title>
+  <style type="text/css">
+    canvas {
+      border: 1px solid lightpink;
+    }
+  </style>
+</head>
+<body>
+<canvas width="900" height="600"></canvas>
+<script type="text/javascript">
+  //获取对象
+  let canvas = document.querySelector("canvas");
+  //获取上下文
+  let context = canvas.getContext("2d");
+
+  //落笔1
+  context.moveTo(100, 50);
+  //连线
+  context.lineTo(300, 90);
+  //描边
+  context.stroke();
+
+  //开启新图层 否则会越描越深
+  context.beginPath();
+
+  //落笔2
+  context.moveTo(200, 50);
+  //连线
+  context.lineTo(400, 90);
+  //颜色
+  context.strokeStyle = "lightpink";
+  //粗细
+  context.lineWidth = "10";
+  //边角
+  context.lineCap = "round";
+
+  context.lineTo(200, 90);
+  //闭合
+  context.closePath();
+  //描边
+  context.stroke();
+
+  //动画
+  let x = 0, y = 0, x2 = 9, y2 = 9, step = 2, i = 1;
+  setInterval(function () {
+    context.clearRect(0, 0, 900, 600);
+    context.fillRect(x, y, x2, y2);
+    x += step * i;
+    if (x > canvas.width - x2) {
+      i = -1;
+    } else if (x < 0) {
+      i = 1;
+    }
+    context.fillRect(x, y, x2, y2);
+  },20)
+</script>
+</body>
+</html>

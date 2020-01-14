@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>网络状态(基本没用)</title>
+</head>
+<body>
+<script type="text/javascript">
+  let onLineState = window.navigator.onLine;
+  if (onLineState) {
+    alert("在线……");
+  } else {
+    alert("离线……");
+  }
+
+  window.ononline = function () {
+    alert("在线……2");
+  };
+
+  window.onoffline = function () {
+    alert("离线……2");
+  }
+</script>
+</body>
+</html>

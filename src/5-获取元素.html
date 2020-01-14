@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>获取页面元素</title>
+</head>
+<style type="text/css">
+  li p span {
+    color: crimson;
+  }
+</style>
+<body>
+
+<ul>
+  <li>
+    <p>
+      <span>1</span>
+    </p>
+  </li>
+  <li>
+    <span>2</span>
+  </li>
+  <br/>
+  <span class="a" data-aaa-bbb="123">3</span>
+</ul>
+
+<script type="text/javascript">
+  <!--只能选中第一个-->
+  document.querySelector("span").style.color = "green";
+  //选中所有(似乎无效)
+  document.querySelector("li").style.color = "blue";
+  //获取自定义属性值 必须以“data-”开头
+  let aaa_dataset = document.querySelector(".a").dataset;
+  console.log(aaa_dataset.aaaBbb);
+  aaa_dataset.aaaBbb = "666";
+  console.log(aaa_dataset.aaaBbb);
+</script>
+
+</body>
+</html>

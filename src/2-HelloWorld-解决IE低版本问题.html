@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="UTF-8">
+  <title>Hello World</title>
+
+  <style type="text/css">
+    nav {
+      height: 100px;
+      background: aqua;
+    }
+
+    div {
+      height: 50px;
+      background: coral;
+      /*方法一：2-转为块元素*/
+      /*display: block;*/
+    }
+  </style>
+
+  <script>
+    //解决ie此版本无法显示样式问题
+    //方法一：1-引入标签
+    // document.createElement("nav")
+  </script>
+
+  <!--方法二：通过js插件-->
+  <!--<script type="text/javascript" src="https://cdn.bootcss.com/html5shiv/r29/html5.js"></script>-->
+
+
+  <!--方法三：最好！判断浏览器版本加载-->
+  <!--[if lte IE 8]>
+  <script type="text/javascript" src="https://cdn.bootcss.com/html5shiv/r29/html5.js"></script>
+  <![endif]-->
+</head>
+
+
+<body>
+
+<nav>导航标签:有语义，（IE8无法显示）</nav>
+<div>导航标签div:无语义</div>
+
+
+<header>头部标签</header>
+
+
+<footer>脚标签</footer>
+
+</body>
+</html>

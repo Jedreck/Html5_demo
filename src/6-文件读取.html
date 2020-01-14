@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>文件读取</title>
+</head>
+<body>
+
+
+<input type="file" name="ufile">
+
+
+<script type="text/javascript">
+  let input = document.querySelector("input");
+
+  input.onchange = function () {
+    //信息
+    // for (var key in this) {
+    //   console.log(key, this[key]);
+    // }
+    //获取文件
+    let file = this.files[0];
+    console.log(file);
+    //读取
+    let fileReader = new FileReader();
+    console.dir(fileReader);
+    fileReader.readAsText(file);
+
+     //结果 文件读取完成后才展示
+    fileReader.onload = function () {
+      console.log(fileReader.result);
+    }
+  }
+</script>
+</body>
+</html>

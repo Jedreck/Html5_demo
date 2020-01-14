@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>本地存储</title>
+</head>
+<body>
+<script type="text/javascript">
+  let a = "aaa";
+  //永久存储
+  window.localStorage.setItem(a,"aaa1");
+  console.log(window.localStorage.getItem(a));
+  window.localStorage.removeItem(a);
+  window.localStorage.clear();
+  //窗口生命周期
+  window.sessionStorage.setItem(a,"aaa1");
+  console.log(window.sessionStorage.getItem(a));
+  window.sessionStorage.removeItem(a);
+  window.sessionStorage.clear();
+</script>
+</body>
+</html>

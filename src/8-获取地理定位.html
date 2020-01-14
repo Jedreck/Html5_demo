@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>地理定位</title>
+</head>
+<body>
+<script type="text/javascript">
+  //只能获取一次当前地理位置信息
+  // window.navigator.geolocation.getCurrentPosition(success,error);
+  //
+  // function success(msg) {
+  //   console.log("1");
+  //   console.log(msg);
+  // }
+  //
+  // function error(msg) {
+  //   alert("失败--"+msg);
+  // }
+
+  //实时获取
+  window.navigator.geolocation.watchPosition(success2,error2);
+
+  function success2(msg,position) {
+    console.log("2");
+    console.log(msg);
+    console.dir(position);
+  }
+
+  function error2(msg) {
+    alert("失败--2"+msg);
+  }
+</script>
+</body>
+</html>

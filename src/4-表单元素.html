@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Form</title>
+</head>
+<body>
+
+<form action="1-HelloWorld.html" id="aaa" autocomplete="off">
+  <!--
+  autocomplete：提示
+  novalidate：关闭校验
+  -->
+
+
+  邮箱：
+  <label>
+    <!--
+  autofocus：自动获取焦点
+  -->
+    <input type="email" name="uemail" autofocus placeholder="邮箱" required oninvalid="setCustomValidity('required!!!');" >
+  </label>
+
+
+  range:
+  <label>
+    <input type="range" name="urange" min="-100" max="200" value="0"/>
+  </label>
+
+  <label>
+    <select multiple>
+      <option>aa</option>
+      <option>aa</option>
+      <option>aa</option>
+      <option>aa</option>
+    </select>
+  </label>
+
+  <label>
+    <input type="text" name="udata" list="udatalist">
+  </label>
+  <datalist id="udatalist">
+    <option value="sss">aa</option>
+    <option value="sss">aa</option>
+    <option value="sss">aa</option>
+    <option value="sss">aa</option>
+  </datalist>
+
+  <input type="submit" name="">
+</form>
+
+
+<label>
+  <input type="text" name="uname" placeholder="用户名" form="aaa">
+</label>
+
+</body>
+</html>
