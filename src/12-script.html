@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>script</title>
+</head>
+<body>
+<script>
+  //原形
+  function f() {
+    function a() {
+      console.log("a");
+    }
+  }
+
+  f.prototype = {
+    b: function () {
+      console.log("b");
+    },
+    c: function () {
+      console.log("c");
+    }
+  };
+  tt = new f();
+  tt.b();
+  tt.c();
+
+  //拷贝
+  let a1 = {sex:"女",age:12,name:"a1",o:{o1:1}};
+  let a2 = {};
+  for(let key in a1){
+    a2[key] = a1[key];
+  }
+  a2.name = "a2";
+  a2.o.o1=2;
+  console.log(a1);
+  console.log(a2);
+
+</script>
+</body>
+</html>
