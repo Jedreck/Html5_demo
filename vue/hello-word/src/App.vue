@@ -1,36 +1,39 @@
 <template>
   <div>
-    <img class="logo" src="./assets/logo.png" alt="logo">
-    <HelloWorld/>
-    <mt-button @click="handleClick" size="small" type="danger" style="position: absolute;
-     left: 50%;
-     transform: translate(-50%, -50%);">
-      Test
-    </mt-button>
+    <div class="row">
+      <div class="col-xs-offset-2 col-xs-8">
+        <div class="page-header">
+          <h2>Router Test 01 </h2>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-2 col-xs-offset-2">
+        <div class="list-group">
+          <router-link to="/home" class="list-group-item">Home</router-link>
+          <router-link to="/about" class="list-group-item">About</router-link>
+        </div>
+      </div>
+      <div class="col-xs-6">
+        <div class="panel">
+          <div class="panel-body">
+            <keep-alive max="1">
+              <router-view></router-view>
+            </keep-alive>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-    import {Toast} from 'mint-ui'
-    import HelloWorld from "./components/HelloWorld";
 
-    export default {
-        components: {HelloWorld},
-        methods: {
-            handleClick() {
-                Toast(' 点击了测试');
-            }
-        }
-    }
+  export default {}
 </script>
 
 
 <style scoped>
-  .logo {
-    position: relative;
-    transform: translate(-50%);
-    left: 50%;
-    width: 200px;
-    height: 200px;
-  }
+
 </style>

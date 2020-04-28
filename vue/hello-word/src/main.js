@@ -1,11 +1,12 @@
 import Vue from "vue"
 import App from "./App";
-import {Button} from "mint-ui"
 
-Vue.component(Button.name,Button)
+import router from "./router"
+
 
 new Vue({
-    el: '#app',
-    components: {App},
-    template: '<App/>'
+  el: '#app',
+  router,
+  components: {App},
+  template: '<App/>'
 })
