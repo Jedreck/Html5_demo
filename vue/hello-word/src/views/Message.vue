@@ -3,8 +3,8 @@
     <ul>
       <li v-for="msg in messageArray" :key="msg.id">
         <router-link :to="`/home/message/detail/${msg.id}`">{{msg.title}}</router-link>
-        <mt-button @click="pushShow(msg.id)">push</mt-button>
-        <mt-button @click="replaceShow(msg.id)">replace</mt-button>
+        <mt-button v-show="msg.id.toString()!==unShowButtonId" @click="pushShow(msg.id)">push</mt-button>
+        <mt-button v-show="msg.id.toString()!==unShowButtonId" @click="replaceShow(msg.id)">replace</mt-button>
       </li>
     </ul>
     <mt-button @click="$router.back()">back</mt-button>
@@ -20,7 +20,8 @@
     name: "Message",
     data() {
       return {
-        messageArray: []
+        messageArray: [],
+        unShowButtonId: null,
       }
     },
     mounted() {
@@ -46,6 +47,11 @@
       },
       replaceShow(id) {
         this.$router.replace(`/home/message/detail/${id}`)
+      }
+    },
+    watch: {
+      $route: function (value) {
+        this.unShowButtonId = value.params.id;
       }
     },
     components: {

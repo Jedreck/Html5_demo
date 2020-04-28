@@ -1,26 +1,34 @@
 <template>
-  <ul>
-    <li>id : {{msg.id}}</li>
-    <li>title : {{msg.title}}</li>
-    <li>content : {{msg.content}}</li>
-  </ul>
+  <div>
+    <loading type="fading-circle" v-show="loading">Loading...</loading>
+    <ul v-show="!loading">
+      <li>id : {{msg.id}}</li>
+      <li>title : {{msg.title}}</li>
+      <li>content : {{msg.content}}</li>
+    </ul>
+  </div>
 </template>
 
 <script>
+  import {Spinner} from 'mint-ui';
+
   export default {
     name: "MessageDetail",
     data() {
       return {
+        loading: false,
         msg: {
-          id: '',
+          id: '11',
           title: '',
           content: ''
-        }
+        },
+        allMsg: []
       }
     },
     mounted() {
+      this.loading = true
       setTimeout(() => {
-        this.allmsg = [
+        this.allMsg = [
           {
             id: 1,
             title: 'title 01',
@@ -35,13 +43,24 @@
             content: 'content 03...........'
           }
         ];
-        console.log(this.allmsg.length)
+        console.log(this.allMsg.length)
       }, 1000)
     },
     watch: {
+      allMsg: function (value) {
+        console.log('watch allMsg:' + this.allMsg.length)
+        console.log('watch id:' + this.$route.params.id)
+        this.msg = value.find(detail => detail.id === (this.$route.params.id * 1))
+        this.loading = false
+      },
       $route: function (value) {
-        this.msg = this.allmsg.find(detail => detail.id === (value.params.id * 1))
+        this.loading = true;
+        this.msg = this.allMsg.find(detail => detail.id === (value.params.id * 1))
+        this.loading = false
       }
+    },
+    components: {
+      "loading": Spinner
     }
   }
 </script>
